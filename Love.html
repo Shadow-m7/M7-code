@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For My Love ❤️</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(-45deg,#ff758c,#ff7eb3,#ffd3a5,#fd6585);
+background-size:400% 400%;
+animation:bg 10s ease infinite;
+}
+
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.container{
+text-align:center;
+padding:40px;
+background:rgba(255,255,255,.2);
+backdrop-filter:blur(15px);
+border-radius:30px;
+box-shadow:0 0 35px pink;
+max-width:700px;
+}
+
+h1{
+font-size:45px;
+color:white;
+text-shadow:0 0 15px deeppink;
+}
+
+p{
+font-size:26px;
+margin:30px 0;
+color:white;
+}
+
+button{
+padding:18px 45px;
+border:none;
+border-radius:50px;
+font-size:28px;
+margin:15px;
+cursor:pointer;
+transition:.4s;
+font-weight:bold;
+}
+
+#yesBtn{
+background:#ff2e88;
+color:white;
+box-shadow:0 0 20px hotpink;
+}
+
+#noBtn{
+background:white;
+color:#ff2e88;
+position:relative;
+}
+
+#surprise{
+display:none;
+animation:zoom 2s;
+}
+
+@keyframes zoom{
+from{
+opacity:0;
+transform:scale(.4);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+
+.big{
+font-size:100px;
+animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+50%{
+transform:scale(1.2);
+}
+}
+
+.shayari{
+font-size:30px;
+line-height:1.8;
+color:white;
+margin-top:20px;
+text-shadow:0 0 10px deeppink;
+}
+
+.floating{
+position:fixed;
+font-size:35px;
+animation:rise 5s linear forwards;
+}
+
+@keyframes rise{
+from{
+transform:translateY(100vh);
+opacity:1;
+}
+to{
+transform:translateY(-10vh);
+opacity:0;
+}
+}
+
+#letter{
+display:none;
+margin-top:30px;
+font-size:30px;
+color:yellow;
+animation:fade 3s;
+line-height:1.8;
+font-weight:bold;
+text-shadow:0 0 15px gold;
+}
+
+@keyframes fade{
+from{opacity:0;}
+to{opacity:1;}
+}
+</style>
+</head>
+<body>
+
+<div class="container" id="proposal">
+
+<h1>Will You Be Mine Forever? ❤️</h1>
+
+<p>
+Tum meri life ki sabse beautiful feeling ho...<br>
+Kya tum meri girlfriend banogi? 💖
+</p>
+
+<button id="yesBtn" onclick="yesLove()">
+YES 💘
+</button>
+
+<button id="noBtn" onmouseover="runAway()">
+NO 🙈
+</button>
+
+</div>
+
+
+<div class="container" id="surprise">
+
+<div class="big">💞</div>
+
+<h1>You Said YES!!!</h1>
+
+<div class="shayari">
+Teri muskaan meri jaan hai,<br>
+Tu meri mohabbat ki pehchaan hai...<br><br>
+
+Rab se bas ek dua maangi thi,<br>
+Aur woh dua tum ban kar aayi ho ❤️<br><br>
+
+Tum sirf meri crush nahi,<br>
+Meri duniya ho... meri jaan ho 💕
+</div>
+
+<div id="letter">
+Tumhara pagal... 💘<br>
+Tumhara deewana... 🌹<br>
+Tumhara mehboob... ❤️<br><br>
+
+<b>Shadow (SHAHID🥰💕)</b><br><br>
+
+Promise karta hoon,<br>
+hamesha pyaar karunga,<br>
+hamesha tumhara rahunga... 💞
+</div>
+
+</div>
+
+
+<audio id="song" loop>
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+</audio>
+
+<script>
+
+function runAway(){
+let btn=document.getElementById("noBtn");
+
+let x=Math.random()*300-150;
+let y=Math.random()*250-125;
+
+btn.style.transform=
+`translate(${x}px,${y}px)`;
+}
+
+function yesLove(){
+
+document.getElementById("proposal").style.display="none";
+document.getElementById("surprise").style.display="block";
+
+document.getElementById("song").play();
+
+setTimeout(()=>{
+document.getElementById("letter").style.display="block";
+},3000);
+
+for(let i=0;i<120;i++){
+setTimeout(heartRain,i*100);
+}
+
+}
+
+function heartRain(){
+
+let h=document.createElement("div");
+
+let arr=["💖","💕","🌹","💘","✨","❤️"];
+
+h.innerHTML=arr[
+Math.floor(Math.random()*arr.length)
+];
+
+h.className="floating";
+
+h.style.left=Math.random()*100+"vw";
+
+h.style.fontSize=
+(30+Math.random()*40)+"px";
+
+document.body.appendChild(h);
+
+setTimeout(()=>{
+h.remove();
+},5000);
+
+}
+
+</script>
+
+</body>
+</html>
